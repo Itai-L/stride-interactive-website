@@ -271,7 +271,7 @@
 
         .hero-subtitle {
             font-family: 'Source Sans 3', sans-serif;
-            font-size: 1.25rem;
+            font-size: 1.6rem;
             font-weight: 400;
             color: var(--text-light);
             max-width: 700px;
@@ -360,13 +360,13 @@
 
         /* Hero Logo */
         .hero-logo {
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
             opacity: 0;
             animation: fadeSlideUp 0.8s ease forwards 0.1s;
         }
 
         .hero-logo img {
-            height: 200px;
+            height: 270px;
             width: auto;
             filter: drop-shadow(0 0 40px rgba(196, 182, 156, 0.15));
             opacity: 0.85;
@@ -376,12 +376,38 @@
         section {
             position: relative;
             z-index: 1;
+            margin: 0;
             padding: 8rem 5%;
+            background-color: var(--primary-dark);
+        }
+
+        /* Soft edge blend between sections (medium) */
+        section::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(10, 11, 10, 0.55) 0%,
+                    rgba(10, 11, 10, 0.35) 12%,
+                    rgba(10, 11, 10, 0.12) 26%,
+                    rgba(10, 11, 10, 0) 42%
+                ),
+                linear-gradient(
+                    to top,
+                    rgba(10, 11, 10, 0.55) 0%,
+                    rgba(10, 11, 10, 0.35) 12%,
+                    rgba(10, 11, 10, 0.12) 26%,
+                    rgba(10, 11, 10, 0) 42%
+                );
+            z-index: 999;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 2.75rem;
         }
 
         .section-tag {
@@ -427,7 +453,9 @@
         /* Mission Section */
         .mission {
             background: var(--primary-dark);
-            background: linear-gradient(180deg, rgba(26, 29, 26, 0.93) 0%, rgba(15, 17, 15, 0.96) 100%), url('assets/images/topographic-bg.jpg') center center / cover no-repeat;
+            background: url('assets/images/gif.gif') center center / cover no-repeat,
+                        linear-gradient(180deg, rgba(26, 29, 26, 0.93) 0%, rgba(15, 17, 15, 0.96) 100%);
+                     
         }
 
         .mission-content {
@@ -464,6 +492,7 @@
         .capabilities {
             position: relative;
             overflow: hidden;
+            background: var(--primary-dark);
         }
 
         .capabilities-bg {
@@ -472,7 +501,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('assets/images/capabilities-bg.jpg') center center / cover no-repeat;
+            background: url('assets/images/unnamed.jpg') center center / cover no-repeat;
+            z-index: 0;
         }
 
         .capabilities-overlay {
@@ -482,6 +512,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(180deg, rgba(26, 29, 26, 0.88) 0%, rgba(21, 24, 21, 0.92) 100%);
+            z-index: 1;
         }
 
         /* Support both the cap-bg-grad div (stride) and the overlay approach (index) */
@@ -511,15 +542,20 @@
         }
 
         .capabilities-carousel-wrapper {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            padding: 0 5rem;
+            padding: 0 4rem;
         }
 
         .carousel-track-container {
             overflow: hidden;
             position: relative;
+            border-radius: 28px;
+            /* blur/blend OUTWARDS (no overlay on cards) */
+            box-shadow:
+                -70px 0 90px -70px rgba(10, 11, 10, 0.9),
+                70px 0 90px -70px rgba(10, 11, 10, 0.9);
         }
 
         .capabilities-carousel {
@@ -537,8 +573,18 @@
             padding: 3rem;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s ease;
             flex: 0 0 auto;
+            /* non-active state by default */
+            filter: blur(2px);
+            opacity: 0.4;
+            transform: scale(0.95);
+            transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .capability-card.is-active {
+            filter: none;
+            opacity: 1;
+            transform: scale(1);
         }
 
         .capability-card::before {
@@ -767,14 +813,71 @@
         }
 
         .delivery-item {
-            padding: 2rem;
-            border-left: 2px solid rgba(196, 182, 156, 0.25);
-            
-            transition: border-color 0.3s ease;
+            position: relative;
+            padding: 2.75rem 2.5rem;
+            border: 1px solid rgba(196, 182, 156, 0.18);
+            border-radius: 18px;
+            background: linear-gradient(145deg, rgba(74, 82, 64, 0.14) 0%, rgba(26, 29, 26, 0.78) 100%);
+            box-shadow:
+                0 18px 55px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(196, 182, 156, 0.06);
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
         }
 
         .delivery-item:hover {
-            border-left-color: var(--accent-sand);
+            transform: translateY(-6px);
+            border-color: rgba(196, 182, 156, 0.42);
+            box-shadow:
+                0 26px 80px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(196, 182, 156, 0.08),
+                0 0 45px rgba(196, 182, 156, 0.16);
+        }
+
+        .delivery-item::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: radial-gradient(800px 180px at 50% -20%,
+                rgba(196, 182, 156, 0.18) 0%,
+                rgba(196, 182, 156, 0.05) 35%,
+                rgba(196, 182, 156, 0) 60%
+            );
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+
+        .delivery-item::after {
+            content: "";
+            position: absolute;
+            top: -30%;
+            left: -60%;
+            width: 55%;
+            height: 160%;
+            background: linear-gradient(120deg,
+                rgba(196, 182, 156, 0) 0%,
+                rgba(196, 182, 156, 0.22) 45%,
+                rgba(196, 182, 156, 0) 70%
+            );
+            transform: translateX(-20%) rotate(10deg);
+            opacity: 0;
+            filter: blur(1px);
+            pointer-events: none;
+        }
+
+        .delivery-item:hover::before {
+            opacity: 1;
+        }
+
+        .delivery-item:hover::after {
+            opacity: 1;
+            animation: deliveryShine 0.9s ease forwards;
+        }
+
+        @keyframes deliveryShine {
+            from { transform: translateX(-30%) rotate(10deg); }
+            to { transform: translateX(260%) rotate(10deg); }
         }
 
         .delivery-item h4 {
@@ -797,8 +900,10 @@
         /* Authority Section */
         .authority {
             background: var(--primary-dark);
-                background: linear-gradient(180deg, rgba(26, 29, 26, 0.93) 0%, rgba(15, 17, 15, 0.96) 100%), url('assets/images/topographic-bg.jpg') center center / cover no-repeat;
-                position: relative;
+                /* background: linear-gradient(180deg, rgba(26, 29, 26, 0.93) 0%, rgba(15, 17, 15, 0.96) 100%), url('assets/images/topographic-bg.jpg') center center / cover no-repeat;
+                position: relative; */
+                background: linear-gradient(180deg, rgba(26, 29, 26, 0.85) 0%, rgba(21, 24, 21, 0.9) 50%, rgba(26, 29, 26, 0.88) 100%), url('assets/images/About.jpeg') center center / cover no-repeat;
+                
             
         }
 
@@ -829,22 +934,22 @@
         /* Authority Brand Logo */
         .authority-brand {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .authority-brand img {
-            height: 145px;
+            height: 250px;
             width: auto;
-            opacity: 0.6;
+            opacity: 0.7;
             filter: drop-shadow(0 0 40px rgba(196, 182, 156, 0.1));
         }
-        .authority-kicker {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
-    color: var(--muted-text);
+            .authority-kicker {
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        color: var(--muted-text);
 }
 
         /* CTA Section */
@@ -1340,6 +1445,10 @@
                 padding: 5rem 5%;
             }
 
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
             .image-divider {
                 height: 220px;
             }
@@ -1419,7 +1528,7 @@
 
     <h1>
         Training the <span>Decisions</span><br>
-        That Decide Combat
+        That Impact Combat
     </h1>
 
     <p class="hero-subtitle">
@@ -1445,7 +1554,7 @@
     <section class="mission" id="mission">
         <div class="section-header reveal">
             <span class="section-tag">Our Mission</span>
-            <h2 class="section-title">War is the realm of uncertainty</h2>
+            <h2 class="section-title">Preparing for Uncertainty</h2>
         </div>
         <div class="mission-content reveal">
           <p>
@@ -1486,8 +1595,8 @@ Infantry commanders operate in environments defined by incomplete information an
                     <div class="capability-card">
                         <span class="capability-number">02</span>
                         <img class="capability-icon-img" src="assets/images/brain.png" alt="Command Loop">
-                        <h3>The Command Loop</h3>
-                        <p class="tagline">Assess. Decide. Act. Under pressure.</p>
+                        <h3>Decision-Making Under Pressure</h3>
+                        <p class="tagline">Assess. Decide. Act.</p>
                         <p>Advanced audio-visual stimuli introduce progressive stress and cognitive load as pressure increases. Commanders are forced to prioritize, issue orders, and adapt under mental fatigue and uncertainty, strengthening decision-making over time.</p>
                     </div>
 
@@ -1571,7 +1680,7 @@ Infantry commanders operate in environments defined by incomplete information an
     <!-- Authority Section -->
     <section class="authority" id="authority">
         <div class="section-header reveal">
-            <span class="section-tag">About</span>
+            <span class="section-tag">About Us</span>
             <h2 class="section-title">Born from the Ground Up</h2>
         </div>
 
@@ -1584,7 +1693,7 @@ Infantry commanders operate in environments defined by incomplete information an
         <p class="authority-kicker">For infantry, by infantry.</p>
 
         <p>
-            Stride Interactive is built by a team of <strong>infantry special forces veterans and commanders</strong> across the ranks — from junior leaders to senior officers with extensive operational and training experience.
+            Stride Interactive is built by a team of <strong>infantry special forces veterans and commanders</strong> across the ranks , from junior leaders to senior officers with extensive operational and training experience.
         </p>
 
         <p>
@@ -1870,8 +1979,11 @@ Infantry commanders operate in environments defined by incomplete information an
                 const container = document.querySelector('.carousel-track-container');
                 if (!container) return;
                 const containerW = container.offsetWidth;
+                const maxContentW = 900;
+                const effectiveW = Math.min(containerW, maxContentW);
                 const peek = getPeek();
-                const cardW = containerW - 2 * peek - GAP;
+                const rawCardW = effectiveW - 2 * peek - GAP;
+                const cardW = Math.max(220, Math.floor(rawCardW * 0.9)); // ~10% less wide
                 document.querySelectorAll('#capCarousel .capability-card').forEach(function (card) {
                     card.style.flex = '0 0 ' + cardW + 'px';
                     card.style.width = cardW + 'px';
@@ -1899,8 +2011,15 @@ Infantry commanders operate in environments defined by incomplete information an
                 else if (currentSlide === realTotal + 1) realIndex = 0;
                 else realIndex = currentSlide - 1;
 
+                // update dots
                 document.querySelectorAll('.dot').forEach(function (dot, i) {
                     dot.classList.toggle('active', i === realIndex);
+                });
+
+                // mark active card for blur effect
+                const cards = track.querySelectorAll('.capability-card');
+                cards.forEach(function (card, index) {
+                    card.classList.toggle('is-active', index === currentSlide);
                 });
             }
 
