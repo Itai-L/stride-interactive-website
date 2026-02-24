@@ -290,7 +290,7 @@
 
         .hero-subtitle {
             font-family: 'Source Sans 3', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 400;
             color: var(--text-light);
             max-width: 700px;
@@ -484,7 +484,7 @@
         }
 
         .mission-content p {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--text-muted);
             line-height: 1.85;
             margin-bottom: 1.5rem;
@@ -492,7 +492,7 @@
 
     .mission-content p:last-child {
     font-style: italic;
-    color: var(--accent-tan);
+    color: var(--accent-light);
     text-align: center;
     border-left: none;
     padding-left: 0;
@@ -506,6 +506,70 @@
     color: var(--accent-tan);
 }
 
+
+.mission-box {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.5rem 3rem;
+    /* border: 1px solid rgba(196, 182, 156, 0.25);
+    background: linear-gradient(
+        145deg,
+        rgba(74, 82, 64, 0.18) 0%,
+        rgba(26, 29, 26, 0.85) 100%
+    );
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(196, 182, 156, 0.08); */
+    text-align: center;
+    position: relative;
+}
+
+/* top accent line stays visual-only */
+.mission-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--accent-sand);
+    opacity: 0.6;
+}
+
+/* main paragraph — SAME as before */
+.mission-box p {
+    font-size: 1.6rem;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* mission highlight — SAME as before */
+.mission-box strong {
+    color: var(--accent-tan);
+    font-weight: 600;
+}
+
+/* quote — SAME color as original */
+.mission-quote {
+    font-style: italic;
+    font-size: 1.45rem;
+    color: var(--accent-sand);
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* author line — subtle but readable */
+.mission-quote span {
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-sand);
+}
 
         /* Capabilities Section */
         .capabilities {
@@ -525,14 +589,20 @@
         }
 
         .capabilities-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(26, 29, 26, 0.88) 0%, rgba(21, 24, 21, 0.92) 100%);
-            z-index: 1;
-        }
+       
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(26, 29, 26, 0.65) 0%,
+        rgba(21, 24, 21, 0.70) 60%,
+        rgba(26, 29, 26, 0.68) 60%
+    );
+}
+        
 
         /* Support both the cap-bg-grad div (stride) and the overlay approach (index) */
         .cap-bg-grad {
@@ -794,13 +864,18 @@
         }
 
         .delivery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(26, 29, 26, 0.85) 0%, rgba(21, 24, 21, 0.9) 50%, rgba(26, 29, 26, 0.88) 100%);
-        }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(26, 29, 26, 0.65) 0%,
+        rgba(21, 24, 21, 0.70) 50%,
+        rgba(26, 29, 26, 0.68) 60%
+    );
+}
 
         /* Support delivery-grad from stride-interactive */
         .delivery-grad {
@@ -940,7 +1015,7 @@
         }
 
         .founders-intro p {
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             color: var(--text-muted);
             line-height: 1.85;
             margin-bottom: 1rem;
@@ -1468,7 +1543,7 @@
             }
 
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 2rem;
             }
 
             section {
@@ -1590,14 +1665,27 @@
             <span class="section-tag">Our Mission</span>
             <h2 class="section-title">Preparing for Uncertainty</h2>
         </div>
-        <div class="mission-content reveal">
+        <!-- <div class="mission-content reveal">
           <p>
 Infantry commanders operate in environments defined by incomplete information and rapidly changing conditions.<br>
 <span class="mission-highlight">Our mission</span> is to train & prepare commanders for the moment when planning collapses and leadership decisions determine the outcome.
 </p>
 
             <p>"War is the realm of uncertainty; three quarters of the factors on which action in war is based are wrapped in a fog of greater or lesser uncertainty" <br>— Carl von Clausewitz</p>
+        </div> -->
+        <div class="mission-box reveal">
+            <p>
+                Infantry commanders operate in environments defined by incomplete information and rapidly changing conditions.<br>
+                <strong>Our mission</strong> is to train & prepare commanders for the moment when planning collapses and leadership decisions determine the outcome.
+            </p>
+        
+            <p class="mission-quote">
+                “War is the realm of uncertainty; three quarters of the factors on which action in war is based are wrapped in a fog of greater or lesser uncertainty”
+                <span>— Carl von Clausewitz</span>
+            </p>
         </div>
+
+
     </section>
 
     <!-- Capabilities Section -->
@@ -1758,7 +1846,7 @@ Infantry commanders operate in environments defined by incomplete information an
                     <img src="assets/images/stride-logo.png" alt="Stride Interactive">
                     <h3>STRIDE INTERACTIVE</h3>
                 </div>
-                <p>The next step of combat simulation. Building cognitive combat readiness for infantry commanders through immersive, scalable training solutions.</p>
+                <p>The next step of combat simulation.<br> Building cognitive combat readiness for infantry commanders through immersive, scalable training solutions.<br><br> Images courtesy of the IDF Spokesperson</p>
             </div>
 
             <div class="footer-column">
@@ -1766,7 +1854,7 @@ Infantry commanders operate in environments defined by incomplete information an
                 <ul>
                     <li><a href="#mission">Mission</a></li>
                     <li><a href="#capabilities">Capabilities</a></li>
-                    <li><a href="#delivery">Delivery</a></li>
+                    <li><a href="#delivery">Deployment</a></li>
                     <li><a href="#authority">About</a></li>
                 </ul>
             </div>
@@ -1796,6 +1884,7 @@ Infantry commanders operate in environments defined by incomplete information an
         </div>
 
         <div class="footer-bottom">
+     
             <p class="footer-copyright">© 2026 Stride Interactive. All rights reserved.</p>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/company/stride-interactive/" target="_blank" aria-label="LinkedIn">
@@ -1811,7 +1900,7 @@ Infantry commanders operate in environments defined by incomplete information an
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <button class="modal-close" onclick="closeModal()">&times;</button>
-            <span class="section-tag" style="position:static;">Request a Demonstration</span>
+         
             <h2 class="modal-title">Schedule a Demo</h2>
             <p class="modal-subtitle">Leave your details and we'll be in touch shortly.</p>
 
