@@ -392,37 +392,42 @@
         }
 
         /* Section Base Styles */
-        section {
-            position: relative;
-            z-index: 1;
-            margin: 0;
-            padding: 8rem 5%;
-            background-color: var(--primary-dark);
-        }
+      /* Section Base Styles */
+section {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 8rem 5%;
+  background-color: var(--primary-dark);
+}
 
-        /* Soft edge blend between sections (medium) */
-        section::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(10, 11, 10, 0.55) 0%,
-                    rgba(10, 11, 10, 0.35) 12%,
-                    rgba(10, 11, 10, 0.12) 26%,
-                    rgba(10, 11, 10, 0) 42%
-                ),
-                linear-gradient(
-                    to top,
-                    rgba(10, 11, 10, 0.55) 0%,
-                    rgba(10, 11, 10, 0.35) 12%,
-                    rgba(10, 11, 10, 0.12) 26%,
-                    rgba(10, 11, 10, 0) 42%
-                );
-            z-index: 999;
-        }
+/* put the soft edge blend BEHIND content */
+section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom,
+      rgba(10, 11, 10, 0.55) 0%,
+      rgba(10, 11, 10, 0.35) 12%,
+      rgba(10, 11, 10, 0.12) 26%,
+      rgba(10, 11, 10, 0) 42%
+    ),
+    linear-gradient(to top,
+      rgba(10, 11, 10, 0.55) 0%,
+      rgba(10, 11, 10, 0.35) 12%,
+      rgba(10, 11, 10, 0.12) 26%,
+      rgba(10, 11, 10, 0) 42%
+    );
+  z-index: 0;            /* <-- key change */
+}
+
+/* ensure normal section content stays above */
+section > * {
+  position: relative;
+  z-index: 1;
+}
 
         .section-header {
             text-align: center;
@@ -886,8 +891,8 @@
     background: linear-gradient(
         180deg,
         rgba(26, 29, 26, 0.65) 0%,
-        rgba(21, 24, 21, 0.70) 50%,
-        rgba(26, 29, 26, 0.68) 60%
+        rgba(21, 24, 21, 0.70) 0%,
+        rgba(26, 29, 26, 0.68) 0%
     );
 }
 
