@@ -293,7 +293,7 @@
             font-size: 1.8rem;
             font-weight: 400;
             color: var(--text-light);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 3rem;
             line-height: 1.8;
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
@@ -432,12 +432,13 @@
         .section-tag {
             display: inline-block;
             font-family: 'Rajdhani', sans-serif;
-            font-size:1.3rem;
+            font-size:1.5rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--accent-tan);
             margin-bottom: 1rem;
             position: relative;
+            font-weight: 500;
         }
 
         .section-tag::before,
@@ -510,7 +511,8 @@
 .mission-box {
     max-width: 900px;
     margin: 0 auto;
-    padding: 3.5rem 3rem;
+    padding: 2.5rem 2rem;
+    margin-top: -4rem;
     /* border: 1px solid rgba(196, 182, 156, 0.25);
     background: linear-gradient(
         145deg,
@@ -525,7 +527,7 @@
 }
 
 /* top accent line stays visual-only */
-.mission-box::before {
+/* .mission-box::before {
     content: "";
     position: absolute;
     top: 0;
@@ -535,12 +537,13 @@
     height: 2px;
     background: var(--accent-sand);
     opacity: 0.6;
-}
+} */
 
 /* main paragraph — SAME as before */
 .mission-box p {
     font-size: 1.6rem;
     line-height: 1.85;
+    font-weight: 500;
     color: var(--text-muted);
     margin-bottom: 2rem;
 }
@@ -564,10 +567,11 @@
 .mission-quote span {
     display: block;
     margin-top: 1rem;
-    font-style: normal;
-    font-size: 0.85rem;
+    font-style: italic;
+    font-size: 1.25rem;
+    font-weight: 550;
     letter-spacing: 0.15em;
-    text-transform: uppercase;
+    
     color: var(--accent-sand);
 }
 
@@ -584,7 +588,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('assets/images/unnamed.jpg') center center / cover no-repeat;
+            background: url('assets/images/unnamed.jpeg') center center / cover no-repeat;
             z-index: 0;
         }
 
@@ -599,7 +603,7 @@
         180deg,
         rgba(26, 29, 26, 0.65) 0%,
         rgba(21, 24, 21, 0.70) 60%,
-        rgba(26, 29, 26, 0.68) 60%
+        rgba(26, 29, 26, 0.68) 100%
     );
 }
         
@@ -656,10 +660,14 @@
         }
 
         .capability-card {
-            background: linear-gradient(145deg, rgba(74, 82, 64, 0.15) 0%, rgba(26, 29, 26, 0.7) 100%);
+            background: linear-gradient(
+            145deg,
+            rgba(35, 37, 31, 0.5) 0%,  /* 10% darker */
+            rgba(26, 29, 26, 0.98) 100%  /* 10% darker */
+        );
             border: 1px solid rgba(196, 182, 156, 0.15);
             backdrop-filter: blur(5px);
-            padding: 3rem;
+            padding: 2rem;
             position: relative;
             overflow: hidden;
             flex: 0 0 auto;
@@ -668,6 +676,8 @@
             opacity: 0.4;
             transform: scale(0.95);
             transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            border-radius: 18px;
+        
         }
 
         .capability-card.is-active {
@@ -756,8 +766,8 @@
         }
 
         .capability-icon-img {
-            width: 80px;
-            height: 80px;
+            width: 0;
+            height: 0;
             margin-bottom: 1.5rem;
             object-fit: contain;
             border-radius: 8px;
@@ -768,16 +778,17 @@
 
         .capability-card h3 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
+            font-size: 2.12rem;
             letter-spacing: 0.04em;
             color: var(--text-light);
             margin-bottom: 0.75rem;
+            text-align: center;
         }
 
         .capability-card .tagline {
             font-family: 'Rajdhani', sans-serif;
             font-weight: 600;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--accent-sand);
             margin-bottom: 1rem;
             letter-spacing: 0.04em;
@@ -786,8 +797,11 @@
 
         .capability-card p {
             color: var(--text-muted);
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             line-height: 1.5;
+            font-weight: 500;
+            text-align: center;
+            
         }
 
         .carousel-arrow {
@@ -892,11 +906,13 @@
         }
 
         .delivery-intro {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto 4rem;
+            margin-top: -2rem;
             text-align: center;
+            font-weight: 500;
             line-height: 1.8;
         }
 
@@ -911,7 +927,7 @@
             padding: 2.75rem 2.5rem;
             border: 1px solid rgba(196, 182, 156, 0.18);
             border-radius: 18px;
-            background: linear-gradient(145deg, rgba(74, 82, 64, 0.14) 0%, rgba(26, 29, 26, 0.78) 100%);
+            background: linear-gradient(145deg, rgba(74, 82, 64, 0.12) 0%, rgba(26, 29, 26, 0.86) 100%);
             box-shadow:
                 0 18px 55px rgba(0, 0, 0, 0.35),
                 inset 0 1px 0 rgba(196, 182, 156, 0.06);
@@ -986,9 +1002,10 @@
 
         .delivery-item p {
             color: var(--text-muted);
-            font-size: 1.3rem;
+            font-size: 1.35rem;
+            font-weight: 550;
             line-height: 1.7;
-              text-align: center;
+            text-align: center;
         }
 
         /* Authority Section */
@@ -1028,14 +1045,15 @@
         /* Authority Brand Logo */
         .authority-brand {
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .authority-brand img {
-            height: 250px;
+            height: 200px;
             width: auto;
             opacity: 0.7;
             filter: drop-shadow(0 0 40px rgba(196, 182, 156, 0.1));
+            margin-top: -3rem;
         }
             .authority-kicker {
         font-weight: 600;
@@ -1043,6 +1061,7 @@
         letter-spacing: 0.08em;
         font-size: 0.85rem;
         margin-bottom: 1rem;
+        margin-top: -1rem;
         color: var(--muted-text);
 }
 
@@ -1050,7 +1069,7 @@
         .cta-section {
             background: linear-gradient(180deg, rgba(26, 29, 26, 0.93) 0%, rgba(15, 17, 15, 0.96) 100%), url('assets/images/topographic-bg.jpg') center center / cover no-repeat;
             text-align: center;
-            padding: 10rem 5%;
+            padding: 5rem 5%;
             position: relative;
         }
 
@@ -1138,6 +1157,7 @@
             letter-spacing: 0.08em;
             color: var(--accent-sand);
             margin-bottom: 1rem;
+            margin-left: -1.5rem;
         }
 
         .footer-brand p {
@@ -1151,7 +1171,8 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            margin-left: -1.5rem;
         }
 
         .footer-brand-logo img {
@@ -1591,6 +1612,253 @@
                 text-align: center;
             }
         }
+
+
+        /* =========================================================
+   MOBILE RESPONSIVE PATCH (paste at end of CSS)
+   ========================================================= */
+
+/* Fix a small bug: you use --muted-text but never defined it */
+:root{
+  --muted-text: var(--text-muted);
+  --accent-light: var(--text-light); /* you reference this in mission sometimes */
+}
+
+/* Make sections less tall on mobile */
+@media (max-width: 768px){
+  section{
+    padding: 4.25rem 5%;
+  }
+
+  .section-tag{
+    font-size: 1rem;
+    letter-spacing: 0.22em;
+  }
+
+  .section-tag::before,
+  .section-tag::after{
+    width: 18px;
+  }
+
+  .section-title{
+    font-size: clamp(2rem, 7vw, 2.7rem);
+    line-height: 1.1;
+  }
+}
+
+/* ---------------- HERO ---------------- */
+@media (max-width: 768px){
+  .hero-content{
+    padding: 0 6%;
+    padding-bottom: 4.25rem;
+  }
+
+  .hero-logo img{
+    height: clamp(96px, 26vw, 150px);
+  }
+
+  .hero-badge{
+    font-size: 0.95rem;
+    padding: 0.55rem 1.2rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero h1{
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .hero h1.hero-title--secondary{
+    font-size: clamp(1.9rem, 8.4vw, 2.6rem);
+  }
+
+  /* your current mobile subtitle is 2rem (too big) */
+  .hero-subtitle{
+    font-size: 1.1rem;
+    line-height: 1.75;
+    margin: 0 auto 2.2rem;
+    max-width: 34rem;
+  }
+
+  .hero-cta{
+    padding: 1.05rem 1.6rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+  }
+
+  .scroll-indicator{
+    bottom: 1.6rem;
+  }
+}
+
+/* ---------------- MISSION ---------------- */
+@media (max-width: 768px){
+  .mission-box{
+    margin-top: 0;               /* remove negative pull */
+    padding: 1.6rem 1.25rem;
+    max-width: 92vw;
+  }
+
+  .mission-box p{
+    font-size: 1.12rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .mission-quote{
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .mission-quote span{
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    margin-top: 0.75rem;
+  }
+}
+
+/* ---------------- CAPABILITIES (Carousel cards too “big”) ---------------- */
+@media (max-width: 768px){
+  .capabilities-carousel{
+    gap: 1.1rem;
+    padding: 0.75rem 0 1.25rem;
+  }
+
+  .capability-card{
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .capability-card h3{
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .capability-card .tagline{
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .capability-card p{
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .carousel-track-container{
+    border-radius: 18px;
+    box-shadow:
+      -45px 0 65px -55px rgba(10, 11, 10, 0.9),
+       45px 0 65px -55px rgba(10, 11, 10, 0.9);
+  }
+}
+
+/* ---------------- DELIVERY ---------------- */
+@media (max-width: 768px){
+  .delivery-intro{
+    font-size: 1.1rem;  /* was 1.8rem */
+    line-height: 1.75;
+    margin-top: -0.75rem;
+    margin-bottom: 2.5rem;
+    padding: 0 0.25rem;
+  }
+
+  .delivery-item{
+    padding: 1.6rem 1.25rem;
+  }
+
+  .delivery-item h4{
+    font-size: 1.15rem;
+  }
+
+  .delivery-item p{
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+/* ---------------- AUTHORITY / ABOUT ---------------- */
+@media (max-width: 768px){
+  .authority-brand img{
+    height: 130px;
+    margin-top: -1.25rem;
+  }
+
+  .authority-kicker{
+    margin-top: 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+  }
+
+  .founders-intro p{
+    font-size: 1.08rem; /* was 1.6rem */
+    line-height: 1.75;
+  }
+}
+
+/* ---------------- CTA SECTION ---------------- */
+@media (max-width: 768px){
+  .cta-section{
+    padding: 4rem 6%;
+  }
+
+  .cta-headline{
+    font-size: clamp(1.8rem, 7.5vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .cta-btn{
+    padding: 1.1rem 1.6rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* ---------------- FOOTER ---------------- */
+@media (max-width: 768px){
+  .footer-brand p{
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .footer-brand h3,
+  .footer-brand-logo{
+    margin-left: 0; /* remove negative alignment on mobile */
+  }
+
+  .footer-brand-logo img{
+    height: 70px;
+  }
+
+  .footer-content{
+    gap: 2.25rem;
+  }
+}
+
+/* ---------------- MODAL ---------------- */
+@media (max-width: 768px){
+  .modal-overlay{
+    padding: 1.25rem;
+  }
+
+  .modal{
+    padding: 1.75rem 1.25rem;
+  }
+
+  .modal-title{
+    font-size: 1.8rem;
+  }
+
+  .modal-subtitle{
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .form-input{
+    font-size: 1rem;
+    padding: 0.8rem 0.9rem;
+  }
+}
     </style>
 </head>
 <body>
@@ -1641,7 +1909,8 @@
     </h1>
 
     <p class="hero-subtitle">
-       Simulation-based training that prepares infantry commanders to decide under pressure
+        Cognitive simulation training for junior infantry commanders, designed to improve decision-making under pressure
+
     </p>
 
     <a href="#" class="hero-cta" onclick="openModal(); return false;">
@@ -1665,14 +1934,7 @@
             <span class="section-tag">Our Mission</span>
             <h2 class="section-title">Preparing for Uncertainty</h2>
         </div>
-        <!-- <div class="mission-content reveal">
-          <p>
-Infantry commanders operate in environments defined by incomplete information and rapidly changing conditions.<br>
-<span class="mission-highlight">Our mission</span> is to train & prepare commanders for the moment when planning collapses and leadership decisions determine the outcome.
-</p>
 
-            <p>"War is the realm of uncertainty; three quarters of the factors on which action in war is based are wrapped in a fog of greater or lesser uncertainty" <br>— Carl von Clausewitz</p>
-        </div> -->
         <div class="mission-box reveal">
             <p>
                 Infantry commanders operate in environments defined by incomplete information and rapidly changing conditions.<br>
@@ -1680,8 +1942,8 @@ Infantry commanders operate in environments defined by incomplete information an
             </p>
         
             <p class="mission-quote">
-                “War is the realm of uncertainty; three quarters of the factors on which action in war is based are wrapped in a fog of greater or lesser uncertainty”
-                <span>— Carl von Clausewitz</span>
+                <span>  “War is the realm of uncertainty; three quarters of the factors on which action in war is based are wrapped in a fog of greater or lesser uncertainty”
+              — Carl von Clausewitz</span>
             </p>
         </div>
 
@@ -1707,39 +1969,35 @@ Infantry commanders operate in environments defined by incomplete information an
                 <div class="capabilities-carousel" id="capCarousel">
 
                     <div class="capability-card">
-                        <span class="capability-number">01</span>
-                        <img class="capability-icon-img" src="assets/images/laptop.jpeg" alt="Simulation">
+                        <!-- <span class="capability-number">01</span> -->
+                        <!-- <img class="capability-icon-img" src="assets/images/laptop.jpeg" alt="Simulation"> -->
                         <h3>The Simulation</h3>
-                        <p class="tagline">Command training from the commander's perspective.</p>
-                        <p>Commanders train inside a first-person tactical simulation that places them at the center of the fight. They observe, command, and decide from the same perspective they will face in combat, while scenarios evolve in real time and plans immediately collide with reality.</p>
+                        <p class="tagline">Commander-perspective training</p>
+                        <p>Commanders train in a first-person tactical simulation, making decisions from the same perspective they face in combat as scenarios evolve in real time.</p>
                     </div>
 
                     <div class="capability-card">
-                        <span class="capability-number">02</span>
-                        <img class="capability-icon-img" src="assets/images/brain.png" alt="Command Loop">
+                        <!-- <span class="capability-number">02</span>
+                        <img class="capability-icon-img" src="assets/images/brain.png" alt="Command Loop"> -->
                         <h3>Decision-Making Under Pressure</h3>
                         <p class="tagline">Assess. Decide. Act.</p>
-                        <p>Advanced audio-visual stimuli introduce progressive stress and cognitive load as pressure increases. Commanders are forced to prioritize, issue orders, and adapt under mental fatigue and uncertainty, strengthening decision-making over time.</p>
+                        <p>Adaptive audio-visual stimuli increase stress and cognitive load, forcing commanders to prioritize, issue orders, and adapt under pressure.</p>
                     </div>
 
                     <div class="capability-card">
-                        <span class="capability-number">03</span>
-                        <img class="capability-icon-img" src="assets/images/sword.jpeg" alt="Thinking Enemy">
+                       
+                        <!-- <img class="capability-icon-img" src="assets/images/sword.jpeg" alt="Thinking Enemy"> -->
                         <h3>The Thinking Enemy</h3>
-                        <p class="tagline">Opposition that reacts, adapts, and exploits mistakes.</p>
-                        <p>Enemy forces are modeled on real hostile behavior. They flank, withdraw, apply pressure, and respond dynamically to commander actions, ensuring no two sessions unfold the same way.</p>
+                        <p class="tagline">An opposition that reacts</p>
+                        <p>Enemy forces model real hostile behavior, flanking, withdrawing, and applying pressure in response to commander actions</p>
                     </div>
 
                     <div class="capability-card">
-                        <span class="capability-number">04</span>
-                        <div class="capability-icon-wrapper">
-                            <svg class="capability-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                            </svg>
-                        </div>
+                        <!-- <span class="capability-number">04</span>
+                        <img class="capability-icon-img" src="assets/images/sword.jpeg" alt="Thinking Enemy"> -->
                         <h3>Debrief &amp; Decision Analysis</h3>
-                        <p class="tagline">Objective truth over subjective memory.</p>
-                        <p>Every session is recorded and reviewed through synchronized replay and structured analysis. Commanders receive clear feedback on decision-making, timing, and command effectiveness, replacing subjective memory with observable truth.</p>
+                        <p class="tagline">Facts over memory</p>
+                        <p>Every session is recorded and reviewed with synchronized replay and structured analysis, providing personalized feedback on tactical performance</p>
                     </div>
 
                 </div>
@@ -1777,23 +2035,24 @@ Infantry commanders operate in environments defined by incomplete information an
         <div class="delivery-item reveal">
             <h4>Laptop-Based, Off-the-Shelf</h4>
             <p>
-                Runs as software on any standard laptops, with no dedicated facilities, bespoke hardware, or fixed installations required.
+                Runs on standard laptops, with no dedicated facilities or bespoke hardware required.
             </p>
+        </div>
+        <div class="delivery-item reveal">
+            <h4>Commander Training Only</h4>
+            <p>Training targets battalion commanders across ranks, with no line soldiers needed</p>
         </div>
 
                 <div class="delivery-item reveal">
                     <h4>Training as a Service</h4>
-       <p> Delivered as a managed training capability, we handle deployment so units can focus on training</p>
+                <p> Managed on-site delivery, fully handling deployment so units focus solely on training</p>
                 </div>
 
-                <div class="delivery-item reveal">
-                    <h4>Commander Training Only</h4>
-                    <p>Training targets battalion commanders across ranks, with no line soldiers, enabling large forces to train simultaneously and efficiently </p>
-                </div>
+              
 
                 <div class="delivery-item reveal">
                     <h4>Scales from Individual to Battalion</h4>
-                    <p>Training can be conducted for individual commanders, small teams, or up to  full multi-commander battalion-level exercises.</p>
+                    <p>Training scales from individual commanders to full battalion-level exercises</p>
                 </div>
             </div>
         </div>
@@ -1803,7 +2062,7 @@ Infantry commanders operate in environments defined by incomplete information an
     <section class="authority" id="authority">
         <div class="section-header reveal">
             <span class="section-tag">About Us</span>
-            <h2 class="section-title">Born from the Ground Up</h2>
+            <h2 class="section-title">Built from the Ground Up</h2>
         </div>
 
     <div class="authority-grid">
@@ -1846,7 +2105,7 @@ Infantry commanders operate in environments defined by incomplete information an
                     <img src="assets/images/stride-logo.png" alt="Stride Interactive">
                     <h3>STRIDE INTERACTIVE</h3>
                 </div>
-                <p>The next step of combat simulation.<br> Building cognitive combat readiness for infantry commanders through immersive, scalable training solutions.<br><br> Images courtesy of the IDF Spokesperson</p>
+                <p>The next step of combat simulation.<br> Building cognitive combat readiness for infantry commanders through immersive, scalable training solutions.</p>
             </div>
 
             <div class="footer-column">
@@ -1885,7 +2144,7 @@ Infantry commanders operate in environments defined by incomplete information an
 
         <div class="footer-bottom">
      
-            <p class="footer-copyright">© 2026 Stride Interactive. All rights reserved.</p>
+            <p class="footer-copyright">© 2026 Stride Interactive. All rights reserved.<br> Images courtesy of the IDF Spokesperson</p>
             <div class="footer-social">
                 <a href="https://www.linkedin.com/company/stride-interactive/" target="_blank" aria-label="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -2147,7 +2406,7 @@ Infantry commanders operate in environments defined by incomplete information an
                 const effectiveW = Math.min(containerW, maxContentW);
                 const peek = getPeek();
                 const rawCardW = effectiveW - 2 * peek - GAP;
-                const cardW = Math.max(220, Math.floor(rawCardW * 0.9)); // ~10% less wide
+                const cardW = Math.max(220, Math.floor(rawCardW * 0.85)); // ~10% less wide
                 document.querySelectorAll('#capCarousel .capability-card').forEach(function (card) {
                     card.style.flex = '0 0 ' + cardW + 'px';
                     card.style.width = cardW + 'px';
