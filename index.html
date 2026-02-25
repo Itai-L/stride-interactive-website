@@ -672,7 +672,7 @@ section > * {
         );
             border: 1px solid rgba(196, 182, 156, 0.15);
             backdrop-filter: blur(5px);
-            padding: 2rem;
+            padding: 0.8rem;
             position: relative;
             overflow: hidden;
             flex: 0 0 auto;
@@ -714,14 +714,15 @@ section > * {
         }
 
         .capability-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            color: rgba(196, 182, 156, 0.1);
-            position: absolute;
-            top: 1rem;
-            right: 2rem;
-            line-height: 1;
-        }
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(196, 182, 156, 0.1);
+    position: absolute;
+    top: 0.85rem;
+    right: 1.1rem;
+    line-height: 1;
+    pointer-events: none;
+}
 
         /* Cap icon (SVG icon style from stride-interactive) */
         .cap-icon {
@@ -771,24 +772,29 @@ section > * {
         }
 
         .capability-icon-img {
-            width: 0;
-            height: 0;
-            margin-bottom: 1.5rem;
-            object-fit: contain;
-            border-radius: 8px;
-            filter: grayscale(1) brightness(1.8) contrast(0.85);
-            mix-blend-mode: luminosity;
-            opacity: 0.75;
-        }
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 1.25rem;
+    display: block;
+    object-fit: contain;
+    border-radius: 8px;
+    filter: grayscale(1) brightness(1.8) contrast(0.85);
+    mix-blend-mode: luminosity;
+    opacity: 0.9;
+}
 
-        .capability-card h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.12rem;
-            letter-spacing: 0.04em;
-            color: var(--text-light);
-            margin-bottom: 0.75rem;
-            text-align: center;
-        }
+.capability-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.12rem;
+    letter-spacing: 0.04em;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    text-align: center;
+
+    /* prevents overlap with the number */
+    padding-right: 3.6rem;
+    padding-left: 3.6rem;
+}
 
         .capability-card .tagline {
             font-family: 'Rajdhani', sans-serif;
@@ -1864,6 +1870,8 @@ section > * {
     padding: 0.8rem 0.9rem;
   }
 }
+/* Desktop: taller cards, more vertical feel */
+
     </style>
 </head>
 <body>
@@ -1974,33 +1982,34 @@ section > * {
                 <div class="capabilities-carousel" id="capCarousel">
 
                     <div class="capability-card">
-                        <!-- <span class="capability-number">01</span> -->
-                        <!-- <img class="capability-icon-img" src="assets/images/laptop.jpeg" alt="Simulation"> -->
+                         <span class="capability-number">01</span>
+                         <img class="capability-icon-img" src="assets/images/laptop.jpeg" alt="Simulation">
                         <h3>The Simulation</h3>
                         <p class="tagline">Commander-perspective training</p>
                         <p>Commanders train in a first-person tactical simulation, making decisions from the same perspective they face in combat as scenarios evolve in real time.</p>
                     </div>
 
                     <div class="capability-card">
-                        <!-- <span class="capability-number">02</span>
-                        <img class="capability-icon-img" src="assets/images/brain.png" alt="Command Loop"> -->
-                        <h3>Decision-Making Under Pressure</h3>
+                        <span class="capability-number">02</span>
+                        <img class="capability-icon-img" src="assets/images/brain.png" alt="Command Loop">
+                        <h3> Under Pressure</h3>
                         <p class="tagline">Assess. Decide. Act.</p>
-                        <p>Adaptive audio-visual stimuli increase stress and cognitive load, forcing commanders to prioritize, issue orders, and adapt under pressure.</p>
+                        <p>Adaptive audio-visual stimuli increase stress and cognitive load, forcing commanders to prioritize, issue orders, under mesurable, controlled pressure</p>
                     </div>
 
                     <div class="capability-card">
-                       
-                        <!-- <img class="capability-icon-img" src="assets/images/sword.jpeg" alt="Thinking Enemy"> -->
+                        <span class="capability-number">03</span>
+                        <img class="capability-icon-img" src="assets/images/sword.jpeg" alt="Thinking Enemy">
+                        
                         <h3>The Thinking Enemy</h3>
                         <p class="tagline">An opposition that reacts</p>
                         <p>Enemy forces model real hostile behavior, flanking, withdrawing, and applying pressure in response to commander actions</p>
                     </div>
 
                     <div class="capability-card">
-                        <!-- <span class="capability-number">04</span>
-                        <img class="capability-icon-img" src="assets/images/sword.jpeg" alt="Thinking Enemy"> -->
-                        <h3>Debrief &amp; Decision Analysis</h3>
+                        <span class="capability-number">04</span>
+                        <img class="capability-icon-img" src="assets/images/analytic.png" alt="analytic">
+                        <h3>Debrief &amp; Analysis</h3>
                         <p class="tagline">Facts over memory</p>
                         <p>Every session is recorded and reviewed with synchronized replay and structured analysis, providing personalized feedback on tactical performance</p>
                     </div>
@@ -2356,17 +2365,17 @@ section > * {
 
         // Capabilities Carousel — Infinite Center Mode
         (function () {
-            const GAP = 32;
+            const GAP = window.innerWidth <= 768 ? 16 : 32;
             let currentSlide = 1;
             let realTotal = 0;
             let isAnimating = false;
 
             function getPeek() {
                 var w = window.innerWidth;
-                if (w <= 480) return 12;
-                if (w <= 768) return 20;
+                if (w <= 480) return 0;   // 🔑 no peek on phones
+                if (w <= 768) return 8;   // very small peek on tablets
                 return Math.max(40, w * 0.07);
-            }
+                }
 
             function init() {
                 const track = document.getElementById('capCarousel');
@@ -2411,7 +2420,12 @@ section > * {
                 const effectiveW = Math.min(containerW, maxContentW);
                 const peek = getPeek();
                 const rawCardW = effectiveW - 2 * peek - GAP;
-                const cardW = Math.max(220, Math.floor(rawCardW * 0.85)); // ~10% less wide
+                const isDesktop = window.innerWidth >= 1025;
+
+// Desktop: narrower cards so they feel less "fat"
+const widthFactor = isDesktop ? 0.72 : 0.85;
+
+const cardW = Math.max(220, Math.floor(rawCardW * widthFactor));
                 document.querySelectorAll('#capCarousel .capability-card').forEach(function (card) {
                     card.style.flex = '0 0 ' + cardW + 'px';
                     card.style.width = cardW + 'px';
@@ -2425,7 +2439,10 @@ section > * {
                 const card = track.querySelector('.capability-card');
                 const cardW = card.offsetWidth;
                 const containerW = container.offsetWidth;
-                const centerOffset = (containerW - cardW) / 2;
+                const isMobile = window.innerWidth <= 768;
+                const centerOffset = isMobile
+                ? (containerW - cardW) / 2
+                : (containerW - cardW) / 2;
                 const translateX = centerOffset - currentSlide * (cardW + GAP);
 
                 track.style.transition = animated
